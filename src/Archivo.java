@@ -19,22 +19,22 @@ public class Archivo {
         try {
             File file = new File("libros.txt");
             FileWriter fw;
-            BufferedWriter bf;
+            BufferedWriter bw;
             if(file.exists()){
                 fw = new FileWriter(file,true);
-                bf = new BufferedWriter(fw);
-                bf.newLine();
-                bf.write(libro.getCodigo() + " " + libro.getIsbn() + " " + libro.getAutor() + " " +
+                bw = new BufferedWriter(fw);
+                bw.newLine();
+                bw.write(libro.getCodigo() + " " + libro.getIsbn() + " " + libro.getAutor() + " " +
                 libro.getTitulo() + " " + libro.getAnho() + " " + libro.getEditorial() + " " + 
                         libro.getMateria() + " " + libro.getCopias() + " " + libro.isEstado());
             }else{
                 fw = new FileWriter(file);
-                bf = new BufferedWriter(fw);
-                bf.write(libro.getCodigo() + " " + libro.getIsbn() + " " + libro.getAutor() + " " +
+                bw = new BufferedWriter(fw);
+                bw.write(libro.getCodigo() + " " + libro.getIsbn() + " " + libro.getAutor() + " " +
                 libro.getTitulo() + " " + libro.getAnho() + " " + libro.getEditorial() + " " + 
                         libro.getMateria() + " " + libro.getCopias() + " " + libro.isEstado());
             }
-            bf.close();
+            bw.close();
             fw.close();
         } catch (Exception e) {
         }
