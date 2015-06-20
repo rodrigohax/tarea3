@@ -102,6 +102,8 @@ public class Libro {
         this.estado = estado;
     }
     
-    
-    
+    public void mostrarDatos(){
+        System.out.println(codigo+"\t"+isbn+"\t"+autor+"\t"+titulo+"\t"+anho+"\t"+
+                editorial+"\t"+materia+"\t"+copias+"\t"+estado);
+    }
 }
