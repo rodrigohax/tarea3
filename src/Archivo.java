@@ -48,9 +48,10 @@ public class Archivo {
                 String linea;
                 while((linea = br.readLine())!=null){
                     String datos[] = linea.split("%");
-                    Libro l = new Libro(Integer.parseInt(datos[0]),datos[1],datos[2],
+                    Libro libro = new Libro(Integer.parseInt(datos[0]),datos[1],datos[2],
                             datos[3],Integer.parseInt(datos[4]),datos[5],datos[6],
                             Integer.parseInt(datos[7]),Boolean.parseBoolean(datos[8]));
+                 libro.mostrarDatos();
                 }
             }else{
                 System.out.println("Sin libros");
