@@ -24,15 +24,15 @@ public class Archivo {
                 fw = new FileWriter(file,true);
                 bw = new BufferedWriter(fw);
                 bw.newLine();
-                bw.write(libro.getCodigo() + "%" + libro.getIsbn() + "%" + libro.getAutor() + "%" +
-                libro.getTitulo() + "%" + libro.getAnho() + "%" + libro.getEditorial() + "%" + 
-                        libro.getMateria() + "%" + libro.getCopias() + "%" + libro.isEstado());
+                bw.write(libro.getCodigo() + "\t" + libro.getIsbn() + "\t" + libro.getAutor() + "\t" +
+                libro.getTitulo() + "\t" + libro.getAnho() + "\t" + libro.getEditorial() + "\t" + 
+                        libro.getMateria() + "\t" + libro.getCopias() + "\t" + libro.isEstado());
             }else{
                 fw = new FileWriter(file);
                 bw = new BufferedWriter(fw);
-                bw.write(libro.getCodigo() + "%" + libro.getIsbn() + "%" + libro.getAutor() + "%" +
-                libro.getTitulo() + "%" + libro.getAnho() + "%" + libro.getEditorial() + "%" + 
-                        libro.getMateria() + "%" + libro.getCopias() + "%" + libro.isEstado());
+                bw.write(libro.getCodigo() + "\t" + libro.getIsbn() + "\t" + libro.getAutor() + "\t" +
+                libro.getTitulo() + "\t" + libro.getAnho() + "\t" + libro.getEditorial() + "\t" + 
+                        libro.getMateria() + "\t" + libro.getCopias() + "\t" + libro.isEstado());
             }
             bw.close();
             fw.close();
@@ -46,8 +46,10 @@ public class Archivo {
                 FileReader fr = new FileReader(file);
                 BufferedReader br = new BufferedReader(fr);
                 String linea;
+                System.out.println("Codigo\tISBN\t\tAutor\t\tTítulo\t\t\t\t\t\t\tAño\tEditorial\tMateria\t\t"
+                        + "Copias\tEstado");
                 while((linea = br.readLine())!=null){
-                    String datos[] = linea.split("%");
+                    String datos[] = linea.split("\t");
                     Libro libro = new Libro(Integer.parseInt(datos[0]),datos[1],datos[2],
                             datos[3],Integer.parseInt(datos[4]),datos[5],datos[6],
                             Integer.parseInt(datos[7]),Boolean.parseBoolean(datos[8]));
