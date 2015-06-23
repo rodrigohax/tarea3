@@ -15,7 +15,8 @@ public class Main {
         Archivo archivo = new Archivo();
         Scanner sc = new Scanner(System.in);
         System.out.println("Elige tu opción kenita");
-        System.out.println("1.-Ingresar datos\n2.-Imprimir Datos\n3.-Hashing Abierto desde archivo de texto");
+        System.out.println("1.-Ingresar datos\n2.-Imprimir Datos\n3.-Tabla de Hashing con encademaniento separado desde archivo de texto"
+                + "\n4.-Tabla de Hashing con doble Hash(Dericcionamiento abierto) desde archivo de texto");
         int opcion = sc.nextInt();
             switch(opcion){
                 case 1:
@@ -46,7 +47,10 @@ public class Main {
                 case 3:
                     archivo.hashingAbierto();
                     break;
-                default: System.out.println("Kenita tonta");
+                case 4:
+                    archivo.dobleHash();
+                    break;
+                default: System.out.println("Elige opción correcta");
             }
     }
               
