@@ -87,8 +87,4 @@ public class Archivo {
         } catch (Exception e) {
         }
     }
-    public static void main(String[] args) {
-        Archivo a = new Archivo();
-        a.hashingAbierto();
-    }
 }
