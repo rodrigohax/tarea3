@@ -1,13 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Rodrigo
- */
 public class HashTable {
 
     private Libro hashArray[];
@@ -54,6 +44,17 @@ public class HashTable {
                 hashArray[hashVal] = nonItem;
                 return temp;
             }
+            ++hashVal;
+            hashVal %= arraySize;
+        }
+        return null;
+    }
+    
+    public Libro find(int key){
+        int hashVal = hashFunc(key);
+        while(hashArray[hashVal] != null){
+            if(hashArray[hashVal].getCodigo() == key)
+                return hashArray[hashVal];
             ++hashVal;
             hashVal %= arraySize;
         }
