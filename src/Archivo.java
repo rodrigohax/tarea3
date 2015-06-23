@@ -56,7 +56,7 @@ public class Archivo {
                     Libro libro = new Libro(Integer.parseInt(datos[0]),datos[1],datos[2],
                             datos[3],Integer.parseInt(datos[4]),datos[5],datos[6],
                             Integer.parseInt(datos[7]),Boolean.parseBoolean(datos[8]));
-                 libro.mostrarDatos();
+                    System.out.println(libro.toString());;
                 }
             }else{
                 System.out.println("Sin libros");
@@ -86,5 +86,9 @@ public class Archivo {
             }
         } catch (Exception e) {
         }
+    }
+    public static void main(String[] args) {
+        Archivo a = new Archivo();
+        a.hashingAbierto();
     }
 }

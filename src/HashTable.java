@@ -14,7 +14,7 @@ public class HashTable {
         System.out.println("Tabla");
         for (int i = 0; i < arraySize; i++) {
             if (hashArray[i] != null) {
-                System.out.print(hashArray[i].getCodigo());
+                System.out.print(hashArray[i].toString());
             } else {
                 System.out.print("** ");
             }
