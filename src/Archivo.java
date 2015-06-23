@@ -1,5 +1,6 @@
 
 import java.io.*;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,8 +12,10 @@ import java.io.*;
  * @author Rodrigo
  */
 public class Archivo {
+    private HashTable ht;
 
     public Archivo() {
+        this.ht = new HashTable(131);
     }
     
     public void escribirLibro(Libro libro){
@@ -46,7 +49,7 @@ public class Archivo {
                 FileReader fr = new FileReader(file);
                 BufferedReader br = new BufferedReader(fr);
                 String linea;
-                System.out.println("Codigo\tISBN\t\tAutor\t\tTítulo\t\t\t\t\t\t\tAño\tEditorial\tMateria\t\t"
+                System.out.println("Codigo\tISBN\t\tAutor\t\tTitulo\t\t\t\t\t\t\tAño\tEditorial\tMateria\t\t"
                         + "Copias\tEstado");
                 while((linea = br.readLine())!=null){
                     String datos[] = linea.split("\t");
@@ -60,5 +63,32 @@ public class Archivo {
             }
         } catch (Exception e) {
         }
+    }
+    
+    // retorna libros del archivo
+    public void obtenerLibros(){
+        try {
+            File file = new File("libros.txt");
+            if(file.exists()){
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                while((linea = br.readLine()) !=null){
+                    String datos[] = linea.split("\t");
+                    Libro libro = new Libro(Integer.parseInt(datos[0]),datos[1],datos[2],
+                            datos[3],Integer.parseInt(datos[4]),datos[5],datos[6],
+                            Integer.parseInt(datos[7]),Boolean.parseBoolean(datos[8]));
+                    ht.insert(libro);
+            }
+                ht.displayTable();
+            }else{
+                System.out.println("No hay libros");
+            }
+        } catch (Exception e) {
+        }
+    }
+    public static void main(String[] args) {
+        Archivo archivo = new Archivo();
+        archivo.obtenerLibros();
     }
 }
