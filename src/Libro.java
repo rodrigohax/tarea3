@@ -18,6 +18,11 @@ public class Libro {
     private int copias;
     private boolean estado;
 
+    public Libro(){
+        this.codigo=-1;
+    }
+
+    
     public Libro(int codigo, String isbn, String autor, String titulo, int anho, String editorial, String materia, int copias, boolean estado) {
         this.codigo = codigo;
         this.isbn = isbn;
@@ -29,6 +34,7 @@ public class Libro {
         this.copias = copias;
         this.estado = estado;
     }
+    
 
     public int getCodigo() {
         return codigo;

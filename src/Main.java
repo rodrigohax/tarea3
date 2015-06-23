@@ -47,6 +47,6 @@ public class Main {
                 default: System.out.println("Kenita tonta");
             }
         } while (opcion==3);
-        
     }
+              
 }
