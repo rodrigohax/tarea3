@@ -17,7 +17,6 @@ public class Main {
         System.out.println("Elige tu opción kenita");
         System.out.println("1.-Ingresar datos\n2.-Imprimir Datos\n3.-Hashing Abierto desde archivo de texto");
         int opcion = sc.nextInt();
-        do {
             switch(opcion){
                 case 1:
                     System.out.println("Ingresa el codigo");
@@ -46,9 +45,9 @@ public class Main {
                     break;
                 case 3:
                     archivo.hashingAbierto();
+                    break;
                 default: System.out.println("Kenita tonta");
             }
-        } while (opcion==4);
     }
               
 }
