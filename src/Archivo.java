@@ -87,8 +87,4 @@ public class Archivo {
         } catch (Exception e) {
         }
     }
-    public static void main(String[] args) {
-        Archivo archivo = new Archivo();
-        archivo.obtenerLibros();
-    }
 }
