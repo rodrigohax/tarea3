@@ -65,8 +65,8 @@ public class Archivo {
         }
     }
     
-    // retorna libros del archivo
-    public void obtenerLibros(){
+    // Tabla de hash con encadenamiento separado
+    public void hashingAbierto(){
         try {
             File file = new File("libros.txt");
             if(file.exists()){
