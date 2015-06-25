@@ -1,4 +1,5 @@
-
+// no sirve para la tarea
+//tri-te-za
 public class HashDouble {
 
     private Libro hashArray[];

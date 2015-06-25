@@ -114,7 +114,7 @@ public class Libro {
     }
     
     public long codigoToAscii(){
-        String cadena = Integer.toString(codigo);
+        String cadena = Integer.toString(codigo);//transformamos de int a string
         int aux=cadena.length()-1;
         long suma=0;
         for (int i = 0; i < cadena.length(); i++) {
