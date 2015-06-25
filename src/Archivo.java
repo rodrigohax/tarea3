@@ -92,6 +92,7 @@ public class Archivo {
         }
     }
 
+    //no sirve pa niuna wea del trabajo
     public void dobleHash() {
         try {
             File file = new File("libros.txt");
