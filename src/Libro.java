@@ -113,7 +113,7 @@ public class Libro {
                 editorial+"\t"+materia+"\t"+copias+"\t"+estado;
     }
     
-    public long toAscii(){
+    public long codigoToAscii(){
         String cadena = Integer.toString(codigo);
         int aux=cadena.length()-1;
         long suma=0;
@@ -122,9 +122,5 @@ public class Libro {
             aux--;
         }
         return suma;
-    }
-    public static void main(String[] args) {
-        Libro libro = new Libro(323213214,"nose1233","yolo","libro 1",2015,"editorial adsd","materita",3,false);
-        System.out.println(libro.toAscii());
     }
 }
