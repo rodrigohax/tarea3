@@ -21,22 +21,23 @@ public class HashTable {
         }
     }
 
-    public int hashFunc(int key) {
+    public long hashFunc(long key) {
         return key % arraySize;
     }
-
+    
+    //al insertar le pasamos un libro y con la funcion codigoToAscii ordenamos
     public void insert(Libro item) {
-        int key = item.getCodigo();
-        int hashVal = hashFunc(key);
-        while (hashArray[hashVal] != null && hashArray[hashVal].getCodigo() == -1) {
+        long key = item.codigoToAscii();
+        long hashVal = hashFunc(key);
+        while (hashArray[(int)hashVal] != null && hashArray[(int)hashVal].codigoToAscii() == -1) {
             ++hashVal;
             hashVal %= arraySize;
         }
-        hashArray[hashVal] = item;
+        hashArray[(int)hashVal] = item;
     }
 
     public Libro delete(int key){
-        int hashVal = hashFunc(key);
+        int hashVal = (int)hashFunc(key);
         while (hashArray[hashVal] != null){
             if (hashArray[hashVal].getCodigo() == key){
                 Libro temp = hashArray[hashVal];
@@ -50,7 +51,7 @@ public class HashTable {
     }
     
     public Libro find(int key){
-        int hashVal = hashFunc(key);
+        int hashVal = (int)hashFunc(key);
         while(hashArray[hashVal] != null){
             if(hashArray[hashVal].getCodigo() == key)
                 return hashArray[hashVal];
