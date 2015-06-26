@@ -23,11 +23,11 @@ public class SortedList {
         }
         theLink.next = current;
     }
-
+    
     public void delete(int key) {
         Link previous = null;
         Link current = first;
-        while (current != null && key != current.getKey().getCodigo()) {
+        while (current != null && key != current.getKey().getCodigoToBase128()) {
             previous = current;
             current = current.next;
         }
