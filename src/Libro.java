@@ -113,7 +113,8 @@ public class Libro {
                 editorial+"\t"+materia+"\t"+copias+"\t"+estado;
     }
     
-    public long codigoToAscii(){
+    //transformación del codigo del libro a base 128
+    public long getCodigoToBase128(){
         String cadena = Integer.toString(codigo);//transformamos de int a string
         int aux=cadena.length()-1;
         long suma=0;
