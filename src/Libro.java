@@ -1,13 +1,17 @@
+import java.math.BigInteger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author Rodrigo
  */
 public class Libro {
+
     private int codigo;
     private String isbn;
     private String autor;
@@ -18,11 +22,10 @@ public class Libro {
     private int copias;
     private boolean estado;
 
-    public Libro(){
-        this.codigo=-1;
+    public Libro() {
+        this.codigo = -1;
     }
 
-    
     public Libro(int codigo, String isbn, String autor, String titulo, int anho, String editorial, String materia, int copias, boolean estado) {
         this.codigo = codigo;
         this.isbn = isbn;
@@ -34,7 +37,6 @@ public class Libro {
         this.copias = copias;
         this.estado = estado;
     }
-    
 
     public int getCodigo() {
         return codigo;
@@ -107,21 +109,52 @@ public class Libro {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-    public String toString(){
-        return codigo+"\t"+isbn+"\t"+autor+"\t"+titulo+"\t"+anho+"\t"+
-                editorial+"\t"+materia+"\t"+copias+"\t"+estado;
+
+    public String toString() {
+        return codigo + "\t" + isbn + "\t" + autor + "\t" + titulo + "\t" + anho + "\t"
+                + editorial + "\t" + materia + "\t" + copias + "\t" + estado;
     }
-    
+
     //transformación del codigo del libro a base 128
-    public long getCodigoToBase128(){
+    public long getCodigoToBase128() {
         String cadena = Integer.toString(codigo);//transformamos de int a string
-        int aux=cadena.length()-1;
-        long suma=0;
+        int aux = cadena.length() - 1;
+        long suma = 0;
         for (int i = 0; i < cadena.length(); i++) {
-            suma=suma+(int)((int)cadena.charAt(i)*Math.pow(128,aux));
+            suma = suma + (int) ((int) cadena.charAt(i) * Math.pow(128, aux));
             aux--;
         }
         return suma;
+    }
+
+    public int trunk() {
+        BigInteger valor = BigInteger.valueOf(getCodigoToBase128()*getCodigoToBase128());
+        String aux="";
+        for (int i = 0; i < 2; i++) {
+          aux=aux+valor.toString().charAt(i);
+        }
+        return Integer.parseInt(aux);
+    }
+    
+    public int pleg(){
+        BigInteger valor = BigInteger.valueOf(getCodigoToBase128()*getCodigoToBase128());
+        String str = valor.toString();
+        int suma=0;
+        for (int i = 0; i < str.length(); i++) {
+            suma=suma+Character.getNumericValue(str.charAt(i));
+        }
+        return suma;
+    }
+    public static void main(String[] args) {
+        String cadena = "123455	9789500731607	King	Carrie	1974	Doubleday	Terror	12	true";
+        String datos[] = cadena.split("\t");
+        Libro libro = new Libro(Integer.parseInt(datos[0]), datos[1], datos[2],
+                datos[3], Integer.parseInt(datos[4]), datos[5], datos[6],
+                Integer.parseInt(datos[7]), Boolean.parseBoolean(datos[8]));
+ 
+        System.out.println(libro.getCodigoToBase128());
+        System.out.println(libro.getCodigoToBase128()*libro.getCodigoToBase128());
+        System.out.println(libro.trunk());
+        libro.pleg();
     }
 }
