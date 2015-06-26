@@ -8,7 +8,7 @@
  *
  * @author Rodrigo
  */
-
+//Clase Link de listas enlazadas
 class Link {
     private Libro iData;
     public Link next;

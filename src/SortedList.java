@@ -8,6 +8,7 @@
  *
  * @author Rodrigo
  */
+//clase de lista enlazada, donde insertamos el link
 public class SortedList {
 
     private Link first;
@@ -63,7 +64,6 @@ public class SortedList {
         Link current = first;
         while (current != null) {
             current.displayLink();
-            System.out.print("->");
             current = current.next;
         }
         System.out.println("");

@@ -13,7 +13,7 @@ public class HashTableA {
 
     public void displayTable() {
         for (int j = 0; j < arraySize; j++){
-            System.out.print((j+1) + ".\t"); 
+            System.out.print((j+1) + " "); 
             hashArray[j].displayList();
         }
     }
@@ -21,7 +21,9 @@ public class HashTableA {
     public long hashFunc(long key) {
         return key % arraySize;
     }
-
+    //Le entregamos un un link , de este obtemeos su key y luego su codigo en base 128
+    //llamamos a la funcion hashFunc y le pasamos la key
+    //lo insertamos en el hashArray
     public void insert(Link theLink) {
         long key = theLink.getKey().getCodigoToBase128();
         int hashVal = (int)hashFunc(key);
