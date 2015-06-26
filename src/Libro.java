@@ -124,15 +124,14 @@ public class Libro {
         }
         return Integer.parseInt(aux);
     }
-    
     public int pleg(){
-        BigInteger valor = BigInteger.valueOf(getCodigoToBase128()*getCodigoToBase128());
-        String str = valor.toString();
-        int suma=0;
-        for (int i = 0; i < str.length(); i++) {
-            suma=suma+Character.getNumericValue(str.charAt(i));
+        long valor = getCodigoToBase128();
+        long resultado = 0;
+        while(valor>0){
+            resultado = resultado + valor%10;
+            valor = valor/10;
         }
-        return suma;
+        return (int)resultado;
     }
     public static void main(String[] args) {
         String cadena = "123455	9789500731607	King	Carrie	1974	Doubleday	Terror	12	true";
@@ -141,9 +140,9 @@ public class Libro {
                 datos[3], Integer.parseInt(datos[4]), datos[5], datos[6],
                 Integer.parseInt(datos[7]), Boolean.parseBoolean(datos[8]));
  
-        System.out.println(libro.getCodigoToBase128());
-        System.out.println(libro.getCodigoToBase128()*libro.getCodigoToBase128());
-        System.out.println(libro.trunk());
-        libro.pleg();
+        System.out.println("codigo base 128: "+libro.getCodigoToBase128());
+        System.out.println("codigo base 128^2: "+libro.getCodigoToBase128()*libro.getCodigoToBase128());
+        System.out.println("trunk: "+libro.trunk());
+        System.out.println("pleg1: "+libro.pleg());
     }
 }
