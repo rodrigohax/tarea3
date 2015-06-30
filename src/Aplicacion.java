@@ -35,6 +35,8 @@ public class Aplicacion {
                     break;
                 case 3:
                     archivo.hashingAbierto();
+                case 4:
+                    archivo.dobleHash();
                     break;
                 default: System.out.println("Elige opción correcta");
             }

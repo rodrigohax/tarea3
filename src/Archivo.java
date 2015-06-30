@@ -1,11 +1,15 @@
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class Archivo {
+
     private HashTableA theHashTableA;
+    private DoubleHashD theDoubleHashD;
 
     public Archivo() {
         this.theHashTableA = new HashTableA(131);
+        this.theDoubleHashD = new DoubleHashD(131);
     }
 
     public void escribirLibro(Libro libro) {
@@ -72,7 +76,32 @@ public class Archivo {
                     Link link = new Link(libro);
                     theHashTableA.insert(link);
                 }
-               theHashTableA.displayTable();
+                theHashTableA.displayTable();
+            } else {
+                System.out.println("No hay libros");
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public void dobleHash() {
+        try {
+            File file = new File("libros.txt");
+            if (file.exists()) {
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    String datos[] = linea.split("\t");
+                    Libro libro = new Libro(Integer.parseInt(datos[0]), datos[1], datos[2],
+                            datos[3], Integer.parseInt(datos[4]), datos[5], datos[6],
+                            Integer.parseInt(datos[7]), Boolean.parseBoolean(datos[8]));
+                    theDoubleHashD.insert(libro.getCodigo(), libro);
+                }
+                theDoubleHashD.displayTable();
+                theDoubleHashD.delete(763209);
+                theDoubleHashD.displayTable();
+                
             } else {
                 System.out.println("No hay libros");
             }
