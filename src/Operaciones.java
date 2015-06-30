@@ -2,14 +2,14 @@ import java.math.BigInteger;
 
 public class Operaciones {
 
-    public int valor;
+    public int num;
 
     public Operaciones(int valor) {
-        this.valor = valor;
+        this.num = valor;
     }
 
     public long toBase128() {
-        String cadena = Integer.toString(valor);
+        String cadena = Integer.toString(num);
         int aux = cadena.length() - 1;
         long suma = 0;
         for (int i = 0; i < cadena.length(); i++) {
@@ -36,9 +36,5 @@ public class Operaciones {
             valor = valor / 10;
         }
         return (int) resultado;
-    }
-    public static void main(String[] args) {
-        Operaciones x = new Operaciones(2);
-        System.out.println(x.trunk());
     }
 }

@@ -23,8 +23,10 @@ public class SortedList {
         }
         theLink.next = current;
     }
-    
-    public void delete(int key) {
+
+    public void delete(int val) {
+        Operaciones operaciones = new Operaciones(val);
+        long key = operaciones.toBase128();
         Link previous = null;
         Link current = first;
         while (current != null && key != current.getKey().getCodigoToBase128()) {
@@ -38,11 +40,12 @@ public class SortedList {
         }
     }
 
-    public Link find(int key){
+    public Link find(int val) {
+        Operaciones operaciones = new Operaciones(val);
+        long key = operaciones.toBase128();
         Link current = first;
-        while (current != null && current.getKey().getCodigo() <= key){
-            if (current.getKey().getCodigo() == key) 
-            {
+        while (current != null && current.getKey().getCodigoToBase128() <= key) {
+            if (current.getKey().getCodigoToBase128() == key) {
                 return current;
             }
             current = current.next;

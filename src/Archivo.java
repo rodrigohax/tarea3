@@ -2,13 +2,13 @@ import java.io.*;
 
 public class Archivo {
 
-    private HashTableA theHashTableA;
+    private HashTableC theHashTableA;
     private DoubleHashD theDoubleHashD;
     private DoubleHashE theDoubleHashE;
     private DoubleHashF theDoubleHashF;
 
     public Archivo() {
-        this.theHashTableA = new HashTableA(131);
+        this.theHashTableA = new HashTableC(131);
         this.theDoubleHashD = new DoubleHashD(131);
         this.theDoubleHashE = new DoubleHashE(131);
         this.theDoubleHashF = new DoubleHashF(131);

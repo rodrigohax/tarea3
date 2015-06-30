@@ -104,17 +104,17 @@ public class Libro {
     }
 
     public long getCodigoToBase128() {
-        Operaciones operaciones = new Operaciones(codigo);
+        Operaciones operaciones = new Operaciones(this.codigo);
         return operaciones.toBase128();
     }
 
     public int getTrunk() {
-        Operaciones operaciones = new Operaciones(codigo);
+        Operaciones operaciones = new Operaciones(this.codigo);
         return operaciones.trunk();
     }
 
     public int getPleg() {
-        Operaciones operaciones = new Operaciones(codigo);
+        Operaciones operaciones = new Operaciones(this.codigo);
         return operaciones.pleg();
     }
 }

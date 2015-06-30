@@ -1,9 +1,10 @@
-public class HashTableA {
+//ejercicio c
+public class HashTableC {
 
     private SortedList[] hashArray;
     private int arraySize;
 
-    public HashTableA(int size) {
+    public HashTableC(int size) {
         arraySize = size;
         hashArray = new SortedList[arraySize];
         for (int i = 0; i < arraySize; i++) {
