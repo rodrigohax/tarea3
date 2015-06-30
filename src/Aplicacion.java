@@ -45,6 +45,7 @@ public class Aplicacion {
                     archivo.dobleHashF();
                     break;
                 default: System.out.println("Elige opción correcta");
+                    break;
             }
     }
               
