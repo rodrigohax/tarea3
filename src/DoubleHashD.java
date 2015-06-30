@@ -7,7 +7,7 @@ public class DoubleHashD {
         hashArray = new Libro[arraySize];
         nonItem = new Libro();
     }
-    
+    // se imprimen solo los datos no nulos y que su codigo sea distinto de -1 ya que se toma que es nulo
     public void displayTable() {
         System.out.println("Tabla: ");
         for (int j = 0; j < arraySize; j++) {
@@ -24,12 +24,12 @@ public class DoubleHashD {
     public long hashFunc1(long key) {
         return key % arraySize;
     }
-
+// se utiliza el n°127 ya que es primo
     public long hashFunc2(long key) {
         return 127 - key % 127;
     }
 
-//insert a Libro
+//insert a Libro, si se realiza un sondeo se le suma +1,de ahí +2 y asdf
     public void insert(long key, Libro item){
         long hashVal = hashFunc1(key);
         long stepSize = hashFunc2(key);
