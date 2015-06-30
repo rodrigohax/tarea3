@@ -1,6 +1,5 @@
-import java.math.BigInteger;
-
 public class Libro {
+
     private int codigo;
     private String isbn;
     private String autor;
@@ -11,8 +10,8 @@ public class Libro {
     private int copias;
     private boolean estado;
 
-    public Libro() {
-        this.codigo = -1;
+    public Libro(int codigo) {
+        this.codigo = codigo;
     }
 
     public Libro(int codigo, String isbn, String autor, String titulo, int anho, String editorial, String materia, int copias, boolean estado) {
@@ -104,33 +103,18 @@ public class Libro {
                 + editorial + "\t" + materia + "\t" + copias + "\t" + estado;
     }
 
-    //transformación del codigo del libro a base 128
     public long getCodigoToBase128() {
-        String cadena = Integer.toString(codigo);//transformamos de int a string
-        int aux = cadena.length() - 1;
-        long suma = 0;
-        for (int i = 0; i < cadena.length(); i++) {
-            suma = suma + (int) ((int) cadena.charAt(i) * Math.pow(128, aux));
-            aux--;
-        }
-        return suma;
+        Operaciones operaciones = new Operaciones(codigo);
+        return operaciones.toBase128();
     }
 
-    public int trunk() {
-        BigInteger valor = BigInteger.valueOf(getCodigoToBase128()*getCodigoToBase128());
-        String aux="";
-        for (int i = 0; i < 2; i++) {
-          aux=aux+valor.toString().charAt(i);
-        }
-        return Integer.parseInt(aux);
+    public int getTrunk() {
+        Operaciones operaciones = new Operaciones(codigo);
+        return operaciones.trunk();
     }
-    public int pleg(){
-        long valor = getCodigoToBase128();
-        long resultado = 0;
-        while(valor>0){
-            resultado = resultado + valor%10;
-            valor = valor/10;
-        }
-        return (int)resultado;
+
+    public int getPleg() {
+        Operaciones operaciones = new Operaciones(codigo);
+        return operaciones.pleg();
     }
 }

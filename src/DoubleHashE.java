@@ -1,10 +1,10 @@
-//ejercicio d
-public class DoubleHashD {
+//ejercicio e
+public class DoubleHashE {
     private Libro[] hashArray;
     private int arraySize;
     private Libro nonItem;
 
-    public DoubleHashD(int size) {
+    public DoubleHashE(int size) {
         arraySize = size;
         hashArray = new Libro[arraySize];
         nonItem = new Libro(-1);
@@ -38,7 +38,7 @@ public class DoubleHashD {
     public void insert(long key, Libro item) {
         long hashVal = hashFunc1(key);
         long stepSize = hashFunc2(key);
-        while (hashArray[(int) hashVal] != null && hashArray[(int) hashVal].getCodigoToBase128() != -1) {
+        while (hashArray[(int) hashVal] != null && hashArray[(int) hashVal].getTrunk() != -1) {
             hashVal += stepSize;
             hashVal %= arraySize;
         }
@@ -48,11 +48,11 @@ public class DoubleHashD {
 
     public Libro delete(int val) {
         Operaciones operaciones = new Operaciones(val);
-        long key = operaciones.toBase128();
+        long key = operaciones.trunk();
         long hashVal = hashFunc1(key);
         long stepSize = hashFunc2(key);
         while (hashArray[(int) hashVal] != null) {
-            if (hashArray[(int) hashVal].getCodigoToBase128() == key) {
+            if (hashArray[(int) hashVal].getTrunk() == key) {
                 Libro temp = hashArray[(int) hashVal];
                 hashArray[(int) hashVal] = nonItem;
                 return temp;
@@ -66,11 +66,11 @@ public class DoubleHashD {
 
     public Libro find(int val) {
         Operaciones operaciones = new Operaciones(val);
-        long key = operaciones.toBase128();
+        long key = operaciones.trunk();
         long hashVal = hashFunc1(key);
         long stepSize = hashFunc2(key);
         while (hashArray[(int) hashVal] != null) {
-            if (hashArray[(int) hashVal].getCodigo() == key) {
+            if (hashArray[(int) hashVal].getTrunk() == key) {
                 return hashArray[(int) hashVal];
             }
             hashVal += stepSize;
